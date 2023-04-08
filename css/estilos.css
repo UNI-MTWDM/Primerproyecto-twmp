@@ -1,0 +1,30 @@
+* {
+    /*margin: 0;*/
+    /*padding: 0;*/
+    box-sizing: border-box;
+}
+
+.seccionActividades {
+    margin: 5px;
+    padding: 5px;
+    
+}
+
+h1 {
+    font-family: 'Source Code Pro', monospace;
+    /*font-size: 1rem;*/
+    font-weight: 400;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+}
+
+h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    font-weight: 200;
+}
+
+.todo-list>li {
+    background-color: #fff;
+}
