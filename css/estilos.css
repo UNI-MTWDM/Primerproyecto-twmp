@@ -20,6 +20,21 @@
     width: 900px;
 }
 
+.seccionGitHub {
+    margin: 0 auto;
+    padding: 20px 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.seccionCssGrid {
+    margin: 0 auto;
+    /*padding: 20px 0px;*/
+    padding: 0px;
+    text-align: center;
+    
+}
+
 .imgGit img{
     height: 106px;
     text-align: left;
@@ -83,6 +98,14 @@ h2 {
     background-color: #fff;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    background-color: #d8ffe0;
+    padding: 10px;
+}
+
 @media only screen and (max-width: 900px){
     h2 {
         font-size: 1rem;
@@ -116,5 +139,11 @@ h2 {
     .imgVue h2 {
         text-align: center;
         font-size: 6px;
+    }
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto ;
+        background-color: #93b9e3;
+        text-align: center;
     }
 }
