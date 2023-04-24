@@ -23,7 +23,7 @@
         <h1>Primer Proyecto</h1>
     </header>
 
-    <section id="seccionActividades">
+    <section id="app" >
         <article>
             <div class="card-header ui-sortable-handle" style="cursor: move;">
                 <h3 class="card-title">
@@ -33,15 +33,20 @@
             </div>
         </article>
 
-        <article>
+        <div >
+            <p>
+               
+                Actividades completadas {{total}}
+            </p>
+        </div>
+
+        <article >
             <div class="card">
-            
-            
                 <div class="card-body">
                     <ul class="todo-list ui-sortable" data-widget="todo-list">
                         <li>
                             <div class="icheck-primary d-inline ml-2">
-                                <input type="checkbox" value="" name="todo1" id="todoCheck1">
+                                <input @Change="evaluar" type="checkbox" v-model='a1' >
                             </div>
                             <span class="text">Crear una aplicación web que muestre una lista de tareas pendientes utilizando HTML, CSS y Responsive Design para el diseño y la estructura de la página.</span>
                             <small class="badge badge-primary"><i class="far fa-clock"></i> ok</small>
@@ -49,42 +54,42 @@
                         <li>
                         <!--<li class="done">-->
                             <div class="icheck-primary d-inline ml-2">
-                                <input type="checkbox" value="" name="todo2" id="todoCheck2">
+                                <input  @Change="evaluar" type="checkbox" v-model='a2'>
                             </div>
                             <span class="text">Utilizar Flexbox y CSS Grid para crear un diseño adaptable y moderno.</span>
                             <small class="badge badge-secondary"><i class="far fa-clock"></i> ok</small>
                         </li>
                         <li>
                             <div class="icheck-primary d-inline ml-2">
-                                <input type="checkbox" value="" name="todo3" id="todoCheck3">
+                                <input @Change="evaluar" type="checkbox" v-model='a3'>
                             </div>
                             <span class="text">Utilizar Git y GitHub para el control de versiones del código y permitir la colaboración de varios desarrolladores.</span>
                             <small class="badge badge-success"><i class="far fa-clock"></i> ok</small>
                         </li>
                         <li>
                             <div class="icheck-primary d-inline ml-2">
-                                <input type="checkbox" value="" name="todo4" id="todoCheck4">
+                                <input @Change="evaluar" type="checkbox" v-model='a4'>
                             </div>
                             <span class="text">Utilizar los fundamentos de JavaScript, eventos y arreglos para crear una lista de tareas interactiva y dinámica.</span>
                             <small class="badge badge-danger"><i class="far fa-clock"></i> ok</small>
                         </li>
                         <li>
                             <div class="icheck-primary d-inline ml-2">
-                                <input type="checkbox" value="" name="todo5" id="todoCheck5">
+                                <input @Change="evaluar" type="checkbox" v-model='a5'>
                             </div>
                             <span class="text">Utilizar objetos y clases para organizar y estructurar el código de la aplicación.</span>
                             <small class="badge badge-warning"><i class="far fa-clock"></i> ok</small>
                         </li>
                         <li>
                             <div class="icheck-primary d-inline ml-2">
-                                <input type="checkbox" value="" name="todo6" id="todoCheck6">
+                                <input @Change="evaluar" type="checkbox" v-model='a6'>
                             </div>
                             <span class="text">Seleccionar y manipular elementos del DOM utilizando JavaScript para actualizar la lista de tareas en tiempo real.</span>
                             <small class="badge badge-info"><i class="far fa-clock"></i> ok</small>
                         </li>
                         <li>
                             <div class="icheck-primary d-inline ml-2">
-                                <input type="checkbox" value="" name="todo6" id="todoCheck6">
+                                <input @Change="evaluar" type="checkbox" v-model='a7'>
                             </div>
                             <span class="text">Utilizar promesas asíncronas, Fetch y LocalStorage para almacenar y recuperar los datos de la lista de tareas de forma persistente.</span>
                             <small class="badge badge-dark"><i class="far fa-clock"></i> ok</small>
@@ -154,16 +159,58 @@
                 <div class="col-4"></div>
             </div>
         </div>
-        
-        
+
     </section>
 
     <footer>
-
+        
     </footer>
 
     <script src="assets/js/app.js"></script>
     <!--AdminLTE3-->
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    a1: false,
+                    a2: false,
+                    a3: false,
+                    a4: false,
+                    a5: false,
+                    a6: false,
+                    a7: false,
+                    total: 0
+                }
+            },
+            methods:{
+                evaluar(){
+                    this.total=0;
+                    if (this.a1)
+                        {this.total++;}
+
+                    if (this.a2)
+                        {this.total++;}
+
+                    if (this.a3)
+                        {this.total++;}
+
+                    if (this.a4)
+                        {this.total++;}
+                    
+                    if (this.a5)
+                        {this.total++;}
+
+                    if (this.a6)
+                        {this.total++;}
+
+                    if (this.a7)
+                        {this.total++;}
+                    
+                }
+            }
+        }).mount('#app')
+    </script>
 </body>
 </html>
