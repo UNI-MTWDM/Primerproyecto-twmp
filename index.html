@@ -27,22 +27,22 @@
         <article>
             <div class="card-header ui-sortable-handle" style="cursor: move;">
                 <h3 class="card-title">
-                <i class="ion ion-clipboard mr-1"></i>
-                Lista de actividades
+                <div>
+                    <h3>Listado de actividades completadas (total {{total}}):</h3>
+                    <ol>
+                        <li v-for="actividad in actividades" :key="actividad">{{actividad}}</li>
+                    </ol>
+                </div>
                 </h3>
             </div>
         </article>
 
-        <div >
-            <p>
-               
-                Actividades completadas {{total}}
-            </p>
-        </div>
+        
 
         <article >
             <div class="card">
                 <div class="card-body">
+                    <h5>Seleccione las tareas para actualizar la lista en tiempo real.</h5>
                     <ul class="todo-list ui-sortable" data-widget="todo-list">
                         <li>
                             <div class="icheck-primary d-inline ml-2">
@@ -146,7 +146,7 @@
         </div>
     </section>
 
-    <h2>Enlace a Github en la imagen</h2>
+    <h2><b>Enlace a Github en la imagen (da click en la imágen)</b></h2>
     <section class="seccionGitHub">
         <div class="container">
             <div class="row imgGithub">
@@ -181,33 +181,63 @@
                     a5: false,
                     a6: false,
                     a7: false,
-                    total: 0
+                    total: 0,
+                    actividades: [],
                 }
             },
             methods:{
                 evaluar(){
                     this.total=0;
+                    this.actividades = [];
                     if (this.a1)
-                        {this.total++;}
+                        {
+                            this.total++;
+                            this.actividades.push('HTML, CSS y Responsive Design');
+                        }
 
                     if (this.a2)
-                        {this.total++;}
+                        {
+                            this.total++;
+                            this.actividades.push('Flexbox y CSS Grid');
+                        }
 
                     if (this.a3)
-                        {this.total++;}
+                        {
+                            this.total++;
+                            this.actividades.push('Git y GitHub');
+                        }
 
                     if (this.a4)
-                        {this.total++;}
+                        {
+                            this.total++;
+                            this.actividades.push('Tareas interactivas');
+                        }
                     
                     if (this.a5)
-                        {this.total++;}
+                        {
+                            this.total++;
+                            this.actividades.push('Objetos y clases en la aplicación');
+                        }
 
                     if (this.a6)
-                        {this.total++;}
+                        {
+                            this.total++;
+                            this.actividades.push('Manupulación de DOM con JS');
+                        }
 
                     if (this.a7)
-                        {this.total++;}
-                    
+                        {
+                            this.total++;
+                            this.actividades.push('Promesas asíncronas, Fetch y LocalStorage');
+                        }
+                    if (this.total == 7)
+                    {
+                        let h1 = document.createElement('h1');
+                        let texth1 = document.createTextNode('Las tareas han sido completadas');
+                            h1.appendChild(texth1);
+                        document.body.appendChild(h1);
+                        alert('Las tareas han sido completadas, verificar la manipulación del DOM con nuevo texto h1 al final de la página');
+                    }
                 }
             }
         }).mount('#app')
