@@ -163,13 +163,22 @@
     </section>
 
     <footer>
-        
+        <div id="axios" class="row">
+            <br><br><br>
+            <div class="col-4"></div>
+            <div class="col-4 text-center">
+                <button class="btn btn-warning btn-lg" @click="recuperarPost">Dato random de Pikachu</button>
+            </div>
+            <div class="col-4"></div>
+        </div>
     </footer>
 
     <script src="assets/js/app.js"></script>
     <!--AdminLTE3-->
     <script src="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/js/adminlte.min.js"></script>
     <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@next"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         const app = Vue.createApp({
             data() {
@@ -283,7 +292,28 @@
                     this.a7 = true;
                 this.evaluar();
             },
-        }).mount('#app')
+        }).mount('#app');
+        const appAxios = Vue.createApp({
+            data(){
+                return {
+                    color: '',
+                    felicidad: '',
+                    notas: []
+                }
+            },
+            methods: {
+                recuperarPost(){
+                    axios.get('https://pokeapi.co/api/v2/pokemon-species/pikachu').then((respuesta) => {
+                        this.notas = respuesta.data
+                        this.color = this.notas.color.name;
+                        this.felicidad = this.notas.base_happiness;
+                        console.log(this.notas.color.name);
+                        alert("Segun el API de Pokemon \nSabias que pikachu es color " + this.color + " y su nivel de felicidad es " + this.felicidad );
+                    })
+                }
+            }
+        });
+        appAxios.mount("#axios");
     </script>
 </body>
 </html>
