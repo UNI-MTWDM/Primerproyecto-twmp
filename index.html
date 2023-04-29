@@ -46,7 +46,7 @@
                     <ul class="todo-list ui-sortable" data-widget="todo-list">
                         <li>
                             <div class="icheck-primary d-inline ml-2">
-                                <input @Change="evaluar" type="checkbox" v-model='a1' >
+                                <input @Change="evaluar" type="checkbox" v-model='a1'>
                             </div>
                             <span class="text">Crear una aplicación web que muestre una lista de tareas pendientes utilizando HTML, CSS y Responsive Design para el diseño y la estructura de la página.</span>
                             <small class="badge badge-primary"><i class="far fa-clock"></i> ok</small>
@@ -193,42 +193,68 @@
                         {
                             this.total++;
                             this.actividades.push('HTML, CSS y Responsive Design');
+                            localStorage.setItem('actividad1', 'HTML, CSS y Responsive Design');
+                        }
+                        else{
+                            delete localStorage.actividad1;
                         }
 
                     if (this.a2)
                         {
                             this.total++;
                             this.actividades.push('Flexbox y CSS Grid');
+                            localStorage.setItem('actividad2', 'Flexbox y CSS Grid');
+                        }
+                        else{
+                            delete localStorage.actividad2;
                         }
 
                     if (this.a3)
                         {
                             this.total++;
                             this.actividades.push('Git y GitHub');
+                            localStorage.setItem('actividad3', 'Git y GitHub');
+                        }
+                        else{
+                            delete localStorage.actividad3;
                         }
 
                     if (this.a4)
                         {
                             this.total++;
                             this.actividades.push('Tareas interactivas');
+                            localStorage.setItem('actividad4', 'Tareas interactivas');
+                        }
+                        else{
+                            delete localStorage.actividad4;
                         }
                     
                     if (this.a5)
                         {
                             this.total++;
                             this.actividades.push('Objetos y clases en la aplicación');
+                            localStorage.setItem('actividad5', 'Objetos y clases en la aplicación');
+                        }
+                        else{
+                            delete localStorage.actividad5;
                         }
 
                     if (this.a6)
                         {
                             this.total++;
                             this.actividades.push('Manupulación de DOM con JS');
+                            localStorage.setItem('actividad6', 'Manupulación de DOM con JS');
+                        }else{
+                            delete localStorage.actividad6;
                         }
 
                     if (this.a7)
                         {
                             this.total++;
                             this.actividades.push('Promesas asíncronas, Fetch y LocalStorage');
+                            localStorage.setItem('actividad7', 'Promesas asíncronas, Fetch y LocalStorage');
+                        }else{
+                            delete localStorage.actividad7;
                         }
                     if (this.total == 7)
                     {
@@ -238,8 +264,25 @@
                         document.body.appendChild(h1);
                         alert('Las tareas han sido completadas, verificar la manipulación del DOM con nuevo texto h1 al final de la página');
                     }
-                }
-            }
+                },
+            },
+            mounted(){
+                if (localStorage.getItem('actividad1')!= null)
+                    this.a1 = true;
+                if (localStorage.getItem('actividad2')!= null)
+                    this.a2 = true;
+                if (localStorage.getItem('actividad3')!= null)
+                    this.a3 = true;
+                if (localStorage.getItem('actividad4')!= null)
+                    this.a4 = true;
+                if (localStorage.getItem('actividad5')!= null)
+                    this.a5 = true;
+                if (localStorage.getItem('actividad6')!= null)
+                    this.a6 = true;
+                if (localStorage.getItem('actividad7')!= null)
+                    this.a7 = true;
+                this.evaluar();
+            },
         }).mount('#app')
     </script>
 </body>
